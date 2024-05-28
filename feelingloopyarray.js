@@ -5,3 +5,22 @@ const csvstrings = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,
 let cell='';
 let row = [];
 let rows =[];
+
+//loop thru each character in csv
+for (let i = 0; i < csvstrings.length; i++) {
+    let char = csvstrings[i]; // Get the current character
+
+    if (char === ',') {
+        // When a comma is encountered, move to the next cell
+        row.push(cell);
+        cell = '';
+    } else if (char === '\n') {
+        // When a /n is encountered, log the current row and reset cells and counter
+        row.push(cell);
+        rows.push(row)
+        row = [];
+        cell = '';
+    } else {
+        cell += char;
+    }
+}
