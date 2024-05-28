@@ -24,3 +24,15 @@ for (let i = 0; i < csvstrings.length; i++) {
         cell += char;
     }
 }
+// Push the last cell and row if any
+if (cell) {
+    row.push(cell);
+}
+if (row.length > 0) {
+    rows.push(row);
+}
+
+// Log each row
+for (let i = 0; i < rows.length; i++) {
+    console.log(rows[i][0], rows[i][1], rows[i][2], rows[i][3]);
+}
